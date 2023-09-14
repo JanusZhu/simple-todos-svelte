@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import App from '../imports/ui/App.svelte';
+import { Accounts } from 'meteor/accounts-base';
+import { TasksCollection } from '/imports/api/TasksCollection';
 
 
 Meteor.startup(() => {
