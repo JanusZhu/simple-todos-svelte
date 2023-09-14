@@ -60,7 +60,7 @@
                 {user.username} 🚪
             </div>
 
-            <TaskForm user={user}/>
+            <TaskForm/>
 
             <div class="filter">
                 <button on:click={() => setHideCompleted(!hideCompleted)}>

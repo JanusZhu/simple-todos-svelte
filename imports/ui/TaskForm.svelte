@@ -1,7 +1,4 @@
 <script>
-    import { TasksCollection } from '../api/TasksCollection';
-
-    export let user = null;
     let newTask = '';
 
     const handleSubmit = () => {
