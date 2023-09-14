@@ -67,10 +67,14 @@
             <TaskForm/>
 
             <div class="filter">
-                <button on:click={() => setHideCompleted(!hideCompleted)}>
-                    {hideCompleted ? 'Show All' : 'Hide Completed'}
-                </button>
+              <button on:click={() => setHideCompleted(!hideCompleted)}>
+              {hideCompleted ? 'Show All' : 'Hide Completed'}
+              </button>
             </div>
+
+            {#if isLoading}
+                <div class="loading">loading...</div>
+            {/if}
             <ul class="tasks">
               {#each tasks as task (task._id)}
                   <Task task={task} />
