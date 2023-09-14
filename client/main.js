@@ -1,10 +1,9 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
-import { TasksCollection } from '/imports/api/TasksCollection';
-
+import App from '../imports/ui/App.svelte';
 
 Meteor.startup(() => {
+  // eslint-disable-next-line no-new
   new App({
-    target: document.getElementById('app')
+    target: document.getElementById('app'),
   });
 });
