@@ -60,6 +60,7 @@ mongo-id@1.0.8
 npm-mongo@3.9.1
 ordered-dict@1.1.0
 promise@0.12.0
+quave:testing@1.0.1
 random@1.2.0
 rate-limit@1.0.9
 rdb:svelte-meteor-data@0.3.1
