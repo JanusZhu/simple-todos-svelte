@@ -1,3 +1,5 @@
+import '/imports/api/tasksMethods.tests.js';
+
 import assert from "assert";
 
 describe("simple-todos-svelte", function () {
