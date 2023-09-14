@@ -5,15 +5,12 @@
     let newTask = '';
 
     const handleSubmit = () => {
-      // Insert a task into the collection
-      TasksCollection.insert({
-        text: newTask,
-        createdAt: new Date(), // current time
-        userId: user._id,
-      });
+        if (!newTask) return;
 
-      // Clear form
-      newTask = '';
+        Meteor.call('tasks.insert', newTask);
+
+        // Clear form
+        newTask = '';
     }
 </script>
 
