@@ -1,5 +1,5 @@
 <script>
-  import { TasksCollection } from '../api/TasksCollection';
+  import { TasksCollection } from '../db/TasksCollection';
   import { Meteor } from 'meteor/meteor';
   import Task from './Task.svelte';
   import TaskForm from './TaskForm.svelte';
