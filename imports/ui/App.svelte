@@ -15,28 +15,32 @@
   let tasks = [];
   let user = null;
 
-  $m: {
-    user = Meteor.user();
+  let isLoading = true;
+    const handler = Meteor.subscribe('tasks');
 
-    const userFilter = user ? { userId: user._id } : {};
-    const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
+    $m: {
+        user = Meteor.user();
+
+        if (user) {
+
+            isLoading = !handler.ready();
+
+            const userFilter = { userId: user._id };
+            const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
 
 
-    tasks = user
-      ? TasksCollection.find(
-            hideCompleted ? pendingOnlyFilter : userFilter,
-            { sort: { createdAt: -1 } }
-        ).fetch()
-      : [];
+            tasks = TasksCollection.find(
+                    hideCompleted ? pendingOnlyFilter : userFilter,
+                    { sort: { createdAt: -1 } }
+            ).fetch();
 
-    incompleteCount = user
-        ? TasksCollection.find(pendingOnlyFilter).count()
-        : 0;
+            incompleteCount = TasksCollection.find(pendingOnlyFilter).count();
 
-    pendingTasksTitle = `${
-      incompleteCount ? ` (${incompleteCount})` : ''
-    }`;
-  }
+            pendingTasksTitle = `${
+                    incompleteCount ? ` (${incompleteCount})` : ''
+            }`;
+        }
+    }
 
   const setHideCompleted = value => {
     hideCompleted = value;
